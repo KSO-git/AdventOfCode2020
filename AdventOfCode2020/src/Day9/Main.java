@@ -1,7 +1,5 @@
 package Day9;
 
-import Day8.SingleEntry;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -13,8 +11,6 @@ public class Main {
         long firstThatDoesntMatch = findFirstPreamble(dataset, PREAMLE);
         List<ListEntry> seriesThatSumsUpToFirstThatDoesntMatch = getListThatSumsUpToNumber(dataset, firstThatDoesntMatch);
         long sum = sumUpMinAndMax(seriesThatSumsUpToFirstThatDoesntMatch);
-
-
 
         System.out.println("Code to crack Encryption: " + firstThatDoesntMatch);
         System.out.println("Sum Of Min and Max: " + sum);
@@ -30,9 +26,9 @@ public class Main {
             int line = 1;
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
-               ListEntry currentEntry = new ListEntry(line, Long.parseLong(str));
-               result.add(currentEntry);
-               line++;
+                ListEntry currentEntry = new ListEntry(line, Long.parseLong(str));
+                result.add(currentEntry);
+                line++;
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -43,26 +39,26 @@ public class Main {
         return result;
     }
 
-    private static long findFirstPreamble(List<ListEntry> dataEntry, int preabmle){
+    private static long findFirstPreamble(List<ListEntry> dataEntry, int preabmle) {
         long result = 0;
         int iteratior = preabmle;
-        do{
+        do {
             iteratior++;
             List<ListEntry> dataToCheck = getdataSetToCheck(dataEntry, preabmle, iteratior);
             int finalIteratior = iteratior;
             Optional<ListEntry> entryToCheck = dataEntry.stream().filter(entry -> entry.getLineNumber() == finalIteratior).findFirst();
-            if(entryToCheck.isPresent()) {
+            if (entryToCheck.isPresent()) {
                 result = isAllValid(dataToCheck, entryToCheck.get().getValue());
             }
-        } while(result == 0);
+        } while (result == 0);
 
         return result;
     }
 
     private static List<ListEntry> getdataSetToCheck(List<ListEntry> dataEntry, int preabmle, int rowStartNumber) {
         List<ListEntry> result = new ArrayList<>();
-        for(int i = 1; i <= preabmle; i++){
-            int currentRowNumber = rowStartNumber-i;
+        for (int i = 1; i <= preabmle; i++) {
+            int currentRowNumber = rowStartNumber - i;
             Optional<ListEntry> singleEntry = dataEntry.stream().filter(entry -> entry.getLineNumber() == (currentRowNumber)).findFirst();
             singleEntry.ifPresent(result::add);
 
@@ -70,43 +66,43 @@ public class Main {
         return result;
     }
 
-    private static long isAllValid(List<ListEntry> dataEntry, long valueToCheck){
+    private static long isAllValid(List<ListEntry> dataEntry, long valueToCheck) {
         long result = 0;
         boolean isThereAMatch = false;
-        for(ListEntry temp : dataEntry){
-            if(isThereAMatch){
+        for (ListEntry temp : dataEntry) {
+            if (isThereAMatch) {
                 break;
             }
             long valueLooking4 = valueToCheck - temp.getValue();
 
-            if(valueLooking4 >= 0) {
+            if (valueLooking4 >= 0) {
                 ListEntry entryWithoutAnyMatch = dataEntry.stream()
                         .filter(entry -> entry.getValue() != temp.getValue())
-                        .filter(entry -> entry.getValue()==(valueLooking4))
+                        .filter(entry -> entry.getValue() == (valueLooking4))
                         .findFirst().orElse(null);
                 if (entryWithoutAnyMatch != null) {
                     isThereAMatch = true;
                 }
             }
         }
-        if(!isThereAMatch){
+        if (!isThereAMatch) {
             result = valueToCheck;
         }
         return result;
     }
 
-    private static List<ListEntry> getListThatSumsUpToNumber(List<ListEntry> dataset, long desiredNumber){
+    private static List<ListEntry> getListThatSumsUpToNumber(List<ListEntry> dataset, long desiredNumber) {
         List<ListEntry> result = new ArrayList<>();
         ListIterator<ListEntry> intertaorMain = dataset.listIterator();
-        while(intertaorMain.hasNext()){
+        while (intertaorMain.hasNext()) {
             intertaorMain.next();
             Iterator<ListEntry> intertaorTemp = dataset.listIterator(intertaorMain.previousIndex());
             long currentSum = result.stream().mapToLong(ListEntry::getValue).sum();
-            while(currentSum < desiredNumber){
+            while (currentSum < desiredNumber) {
                 result.add(intertaorTemp.next());
                 currentSum = result.stream().mapToLong(ListEntry::getValue).sum();
             }
-            if(currentSum == desiredNumber){
+            if (currentSum == desiredNumber) {
                 return result;
             }
             result.clear();
@@ -115,7 +111,7 @@ public class Main {
 
     }
 
-    private static Long sumUpMinAndMax(List<ListEntry> datasetPart){
+    private static Long sumUpMinAndMax(List<ListEntry> datasetPart) {
         long result = 0L;
         Optional<Long> min = datasetPart.stream()
                 .min(Comparator.comparing(ListEntry::getValue))
@@ -125,7 +121,7 @@ public class Main {
                 .max(Comparator.comparing(ListEntry::getValue))
                 .map(ListEntry::getValue);
 
-        if(min.isPresent() && max.isPresent()) {
+        if (min.isPresent() && max.isPresent()) {
             return min.get() + max.get();
         }
         return result;
