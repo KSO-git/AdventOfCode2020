@@ -55,26 +55,26 @@ public class PlaneSeats {
         this.taken = taken;
     }
 
-    public PlaneSeats newArrangemnt(){
+    public PlaneSeats newArrangemnt() {
         char[][] result = new char[this.length][this.width];
         int occupied = 0;
 
-        for(int i =0; i < this.length; i++){
-            for(int j = 0; j< this.width; j++){
+        for (int i = 0; i < this.length; i++) {
+            for (int j = 0; j < this.width; j++) {
                 char curentChar = this.seatSituationInPlane[i][j];
-                char newChar=FLOOR;
-                switch (curentChar){
+                char newChar = FLOOR;
+                switch (curentChar) {
                     case SEAT_FREE:
-                        newChar = checkUpdatedPositionForEmpty(getAdjecent(i,j));
+                        newChar = checkUpdatedPositionForEmpty(getAdjecent(i, j));
                         break;
                     case SEAT_TAKEN:
-                        newChar =checkUpdatedPositionForOccupied(getAdjecent(i,j), 4);
+                        newChar = checkUpdatedPositionForOccupied(getAdjecent(i, j), 4);
                         break;
                     case FLOOR:
-                        newChar =FLOOR;
+                        newChar = FLOOR;
                         break;
                 }
-                if(newChar==SEAT_TAKEN){
+                if (newChar == SEAT_TAKEN) {
                     occupied++;
                 }
                 result[i][j] = newChar;
@@ -85,26 +85,26 @@ public class PlaneSeats {
         return resultPlaneSeat;
     }
 
-    public PlaneSeats newArrangemntPartTwo(){
+    public PlaneSeats newArrangemntPartTwo() {
         char[][] result = new char[this.length][this.width];
         int occupied = 0;
 
-        for(int i =0; i < this.length; i++){
-            for(int j = 0; j< this.width; j++){
+        for (int i = 0; i < this.length; i++) {
+            for (int j = 0; j < this.width; j++) {
                 char curentChar = this.seatSituationInPlane[i][j];
-                char newChar=FLOOR;
-                switch (curentChar){
+                char newChar = FLOOR;
+                switch (curentChar) {
                     case SEAT_FREE:
-                        newChar = checkUpdatedPositionForEmpty(getInSightRange(i,j));
+                        newChar = checkUpdatedPositionForEmpty(getInSightRange(i, j));
                         break;
                     case SEAT_TAKEN:
-                        newChar =checkUpdatedPositionForOccupied(getInSightRange(i,j), 5);
+                        newChar = checkUpdatedPositionForOccupied(getInSightRange(i, j), 5);
                         break;
                     case FLOOR:
-                        newChar =FLOOR;
+                        newChar = FLOOR;
                         break;
                 }
-                if(newChar==SEAT_TAKEN){
+                if (newChar == SEAT_TAKEN) {
                     occupied++;
                 }
                 result[i][j] = newChar;
@@ -115,35 +115,35 @@ public class PlaneSeats {
         return resultPlaneSeat;
     }
 
-    private List<Character> getAdjecent(int posX, int posY){
+    private List<Character> getAdjecent(int posX, int posY) {
         List<Character> result = new ArrayList<>();
         List<Pair<Integer, Integer>> positionsOfAdjecents = new ArrayList<>();
-        List<Pair<Integer, Integer>> finalListOfPositions = new ArrayList<>();
-        positionsOfAdjecents.add(new Pair<>(posX-1, posY-1));
-        positionsOfAdjecents.add(new Pair<>(posX-1, posY));
-        positionsOfAdjecents.add(new Pair<>(posX-1, posY+1));
+        List<Pair<Integer, Integer>> finalListOfPositions;
+        positionsOfAdjecents.add(new Pair<>(posX - 1, posY - 1));
+        positionsOfAdjecents.add(new Pair<>(posX - 1, posY));
+        positionsOfAdjecents.add(new Pair<>(posX - 1, posY + 1));
 
-        positionsOfAdjecents.add(new Pair<>(posX, posY-1));
-        positionsOfAdjecents.add(new Pair<>(posX, posY+1));
+        positionsOfAdjecents.add(new Pair<>(posX, posY - 1));
+        positionsOfAdjecents.add(new Pair<>(posX, posY + 1));
 
-        positionsOfAdjecents.add(new Pair<>(posX+1, posY-1));
-        positionsOfAdjecents.add(new Pair<>(posX+1, posY));
-        positionsOfAdjecents.add(new Pair<>(posX+1, posY+1));
+        positionsOfAdjecents.add(new Pair<>(posX + 1, posY - 1));
+        positionsOfAdjecents.add(new Pair<>(posX + 1, posY));
+        positionsOfAdjecents.add(new Pair<>(posX + 1, posY + 1));
         finalListOfPositions = positionsOfAdjecents.stream()
-                .filter(pair -> pair.getKey()>=0 && pair.getKey()<this.length)
-                .filter(pair -> pair.getValue()>=0 && pair.getValue()<this.width)
+                .filter(pair -> pair.getKey() >= 0 && pair.getKey() < this.length)
+                .filter(pair -> pair.getValue() >= 0 && pair.getValue() < this.width)
                 .collect(Collectors.toList());
-        for(Pair<Integer, Integer> temp : finalListOfPositions){
+        for (Pair<Integer, Integer> temp : finalListOfPositions) {
             result.add(this.seatSituationInPlane[temp.getKey()][temp.getValue()]);
         }
         return result;
     }
 
-    private Character getFirstSeatInSightInDirection(int startPosX, int startPosY, int changeX, int changeY){
+    private Character getFirstSeatInSightInDirection(int startPosX, int startPosY, int changeX, int changeY) {
         int currentPosX = startPosX + changeX;
         int currentPosY = startPosY + changeY;
-        while(currentPosX >=0 && currentPosX < this.length && currentPosY >=0 && currentPosY<this.width){
-            if(this.seatSituationInPlane[currentPosX][currentPosY] != '.'){
+        while (currentPosX >= 0 && currentPosX < this.length && currentPosY >= 0 && currentPosY < this.width) {
+            if (this.seatSituationInPlane[currentPosX][currentPosY] != '.') {
                 return this.seatSituationInPlane[currentPosX][currentPosY];
             }
             currentPosX += changeX;
@@ -152,7 +152,7 @@ public class PlaneSeats {
         return FLOOR;
     }
 
-    private List<Character> getInSightRange(int posX, int posY){
+    private List<Character> getInSightRange(int posX, int posY) {
         List<Character> result = new ArrayList<>();
         result.add(getFirstSeatInSightInDirection(posX, posY, -1, -1));
         result.add(getFirstSeatInSightInDirection(posX, posY, -1, 0));
@@ -167,17 +167,18 @@ public class PlaneSeats {
         return result;
     }
 
-    private char checkUpdatedPositionForEmpty(List<Character> charsAdjecent){
+    private char checkUpdatedPositionForEmpty(List<Character> charsAdjecent) {
         char result = SEAT_FREE;
-        if(!charsAdjecent.contains(SEAT_TAKEN)){
+        if (!charsAdjecent.contains(SEAT_TAKEN)) {
             result = SEAT_TAKEN;
         }
         return result;
     }
-    private char checkUpdatedPositionForOccupied(List<Character> charsAdjecent, int minNumerOfTaken){
+
+    private char checkUpdatedPositionForOccupied(List<Character> charsAdjecent, int minNumerOfTaken) {
         char result = SEAT_TAKEN;
         long takenAdjecentSeats = charsAdjecent.stream().filter(seat -> seat == SEAT_TAKEN).count();
-        if(takenAdjecentSeats >= minNumerOfTaken){
+        if (takenAdjecentSeats >= minNumerOfTaken) {
             result = SEAT_FREE;
         }
         return result;
