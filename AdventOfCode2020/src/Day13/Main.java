@@ -26,7 +26,7 @@ public class Main {
 
         BusSchedule schedule = new BusSchedule();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay13.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay13.txt");
             Scanner myReader = new Scanner(myObj);
             int lineNumber = 1;
             while (myReader.hasNextLine()) {
@@ -52,7 +52,7 @@ public class Main {
 
         BusSchedule schedule = new BusSchedule();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay13test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay13test.txt");
             Scanner myReader = new Scanner(myObj);
             int lineNumber = 1;
             while (myReader.hasNextLine()) {

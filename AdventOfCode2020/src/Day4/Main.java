@@ -21,7 +21,7 @@ public class Main {
 
         List<Passport> dataList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay4.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay4.txt");
             Scanner myReader = new Scanner(myObj);
             Passport object = new Passport();
             Map<String, String> hashMap = new HashMap<>();

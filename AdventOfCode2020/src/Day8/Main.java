@@ -92,7 +92,7 @@ public class Main {
 
         List<SingleEntry> result = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay8.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay8.txt");
             Scanner myReader = new Scanner(myObj);
             int lineNumber = 1;
             while (myReader.hasNextLine()) {

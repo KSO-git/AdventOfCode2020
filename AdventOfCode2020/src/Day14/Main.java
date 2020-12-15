@@ -32,7 +32,7 @@ public class Main {
 
         List<DataEntry> dataEntryList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay14.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay14.txt");
             Scanner myReader = new Scanner(myObj);
             DataEntry dataEntry = new DataEntry();
             Map<Integer, Integer> mapMemoryValue = new HashMap<>();
@@ -75,7 +75,7 @@ public class Main {
 
         List<DataEntry> dataEntryList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay14.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay14.txt");
             Scanner myReader = new Scanner(myObj);
             DataEntry dataEntry = new DataEntry();
             Map<Integer, Integer> mapMemoryValue = new HashMap<>();
@@ -122,7 +122,7 @@ public class Main {
 
         List<DataEntry> dataEntryList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay14test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay14test.txt");
             Scanner myReader = new Scanner(myObj);
             DataEntry dataEntry = new DataEntry();
             Map<Integer, Integer> mapMemoryValue = new HashMap<>();
@@ -165,7 +165,7 @@ public class Main {
 
         List<DataEntry> dataEntryList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay14testPart2.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay14testPart2.txt");
             Scanner myReader = new Scanner(myObj);
             DataEntry dataEntry = new DataEntry();
             Map<Integer, Integer> mapMemoryValue = new HashMap<>();

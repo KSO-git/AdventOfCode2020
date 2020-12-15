@@ -20,7 +20,7 @@ public class Main {
 
         List<Policy> dataList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay2.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay2.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

@@ -29,7 +29,7 @@ public class Main {
         GroupAnswers groupAnswer;
         int numberOfPeopleInGroup = 0;
         try {
-            File myObj = new File("AdventOfCode2020/inputDay6.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay6.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

@@ -34,7 +34,7 @@ public class Main {
 
         Turtle turtle = new Turtle();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay12.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay12.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
@@ -60,7 +60,7 @@ public class Main {
 
         Turtle turtle = new Turtle();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay12.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay12.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
@@ -86,7 +86,7 @@ public class Main {
 
         Turtle turtle = new Turtle();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay12test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay12test.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
@@ -112,7 +112,7 @@ public class Main {
 
         Turtle turtle = new Turtle();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay12test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay12test.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

@@ -45,7 +45,7 @@ public class Main {
 
         List<SloepLevel> dataList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay3.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay3.txt");
             Scanner myReader = new Scanner(myObj);
             int i = 1;
             while (myReader.hasNextLine()) {

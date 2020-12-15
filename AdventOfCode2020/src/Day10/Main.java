@@ -95,7 +95,7 @@ public class Main {
 
         List<Integer> result = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay10.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay10.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
@@ -114,7 +114,7 @@ public class Main {
 
         List<Integer> result = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay10test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay10test.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

@@ -21,7 +21,7 @@ public class Main {
 
         List<ListEntry> result = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay9.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay9.txt");
             Scanner myReader = new Scanner(myObj);
             int line = 1;
             while (myReader.hasNextLine()) {

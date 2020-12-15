@@ -52,7 +52,7 @@ public class Main {
 
         List<Ticket> dataList = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay5.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay5.txt");
             Scanner myReader = new Scanner(myObj);
             int i = 1;
             while (myReader.hasNextLine()) {

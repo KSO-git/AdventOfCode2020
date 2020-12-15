@@ -28,7 +28,7 @@ public class Main {
         List<OneRow> singleRow = new ArrayList<>();
         int lengthOfPlane = 0;
         try {
-            File myObj = new File("AdventOfCode2020/inputDay11.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay11.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();
@@ -56,7 +56,7 @@ public class Main {
         List<OneRow> singleRow = new ArrayList<>();
         int lengthOfPlane = 0;
         try {
-            File myObj = new File("AdventOfCode2020/inputDay11test.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay11test.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

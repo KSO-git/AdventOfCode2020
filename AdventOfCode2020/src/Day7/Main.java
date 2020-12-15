@@ -28,7 +28,7 @@ public class Main {
 
         List<Bag> result = new ArrayList<>();
         try {
-            File myObj = new File("AdventOfCode2020/inputDay7.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay7.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String str = myReader.nextLine();

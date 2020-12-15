@@ -21,7 +21,7 @@ public class Main {
 
     private static void getDataFromFile() {
         try {
-            File myObj = new File("AdventOfCode2020/inputDay1.txt");
+            File myObj = new File("AdventOfCode2020/TestData/inputDay1.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 numberList.add(Integer.parseInt(myReader.nextLine()));
