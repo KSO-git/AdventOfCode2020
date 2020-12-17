@@ -1,7 +1,5 @@
 package Day17;
 
-import Day16.Validator;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
